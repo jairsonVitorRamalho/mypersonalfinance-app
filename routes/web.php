@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\bankAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/conta',[bankAccountController::class, 'index'])->name('bankAccount');
+Route::get('/conta/create',[bankAccountController::class, 'create'])->name('bankAccountCreate');
+Route::get('/conta/update',[bankAccountController::class, 'update'])->name('bankAccountUpdate');
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
